@@ -3,15 +3,26 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- master
+trigger: none
+
 
 pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: 
+    echo Hello, world!;
+    pwd;
+    ls -alrt;
+    df -h;
+    echo Build.SourcesDirectory $(Build.SourcesDirectory);
+    ls $(Build.SourcesDirectory);
+    echo Build.ArtifactStagingDirectory $(Build.ArtifactStagingDirectory);
+    ls $(Build.ArtifactStagingDirectory);
+    echo System.DefaultWorkingDirectory $(System.DefaultWorkingDirectory);
+    ls $(System.DefaultWorkingDirectory);
+    
+  displayName: 'Get paths'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
