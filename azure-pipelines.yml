@@ -4,13 +4,19 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- testBranch
 
 pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
+- script: 
+    echo Hello, world!
+    pwd
+    ls -alrt
+    df -h
+    ls $(Build.SourcesDirectory)
+    
   displayName: 'Run a one-line script'
 
 - script: |
