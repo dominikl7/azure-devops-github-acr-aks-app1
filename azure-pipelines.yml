@@ -11,11 +11,11 @@ pool:
 
 steps:
 - script: 
-    echo Hello, world!
-    pwd
-    ls -alrt
-    df -h
-    ls $(Build.SourcesDirectory)
+    echo Hello, world!;
+    pwd;
+    ls -alrt;
+    df -h;
+    ls $(Build.SourcesDirectory);
     
   displayName: 'Run a one-line script'
 
