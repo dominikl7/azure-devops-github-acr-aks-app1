@@ -8,8 +8,12 @@
 trigger:
 - master
 
-# Variables
 variables:
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: '2e1e5169-8772-4361-8904-ce7f12328b57'
+  imageRepository: 'dominiklazuredevopsgithubacraksapp'
+  containerRegistry: 'dominiksregistry.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
 
 stages:
@@ -25,8 +29,8 @@ stages:
     # Task-1: Build Docker Image and push to Azure Container Registry ACR
     - task: Docker@2
       inputs:
-        containerRegistry: 'manual-aksdevopsacr-svc'
-        repository: 'custom2aksnginxapp1'
+        containerRegistry: $(dockerRegistryServiceConnection)
+        repository: $(imageRepository)
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: |
