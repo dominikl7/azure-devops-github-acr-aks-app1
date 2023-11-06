@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: app1-nginx
-          image: dominiksregistry.azurecr.io/dominiklazuredevopsgithubacraksap
+          image: dominiksregistry.azurecr.io/dominiklazuredevopsgithubacraksapp
           ports:
             - containerPort: 80
 ---
